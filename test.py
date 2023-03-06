@@ -71,6 +71,8 @@ while True:
     cv2.polylines(frame,[np.array(area,np.int32)],True,(255,255,0),3)
     count=len(area_c)
     cv2.putText(frame, str(count), (61, 146), cv2.FONT_HERSHEY_PLAIN,5, (225, 255, 255), 2)
+    with open("count.txt", "a") as file:
+        file.write(str(count))
     cv2.imshow("RGB", frame)
     if cv2.waitKey(1)&0xFF==27:
         break
